@@ -1,0 +1,33 @@
+import java.util.Scanner;
+import java.util.Stack;
+
+public class PalindromeStack {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Nhập chuỗi: ");
+        String str = sc.nextLine();
+
+        Stack<Character> stack = new Stack<>();
+
+        // đưa ký tự vào stack
+        for (int i = 0; i < str.length(); i++) {
+            stack.push(str.charAt(i));
+        }
+
+        boolean isPalindrome = true;
+
+        // so sánh với chuỗi ban đầu
+        for (int i = 0; i < str.length(); i++) {
+            if (str.charAt(i) != stack.pop()) {
+                isPalindrome = false;
+                break;
+            }
+        }
+
+        if (isPalindrome) {
+            System.out.println("Chuỗi đối xứng");
+        } else {
+            System.out.println("Không phải chuỗi đối xứng");
+        }
+    }
+}
